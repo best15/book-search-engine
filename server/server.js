@@ -17,14 +17,8 @@ const server = new ApolloServer({
   resolvers,
 });
 
-const startServer = async () => {
-  await server.start();
-  server.applyMiddleware({ app });
 
-}
-
-startServer();
-
+server.applyMiddleware({ app });
 
 // if we're in production, serve client/build as static assets
 if (process.env.NODE_ENV === 'production') {
