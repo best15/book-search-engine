@@ -14,11 +14,18 @@ const resolvers = {
       return User.find();
     },
     me: async (parent, args, context) => {
-      if (context.user) {
-        const userData = await User.findOne({ _id: context.user._id });
-        return userData;
+
+      try {
+        if (context.user) {
+          const userData = await User.findOne({ _id: context.user._id });
+          return userData;
+        }
+      } catch (error) {
+        console.error(error);
+        throw new AuthenticationError('Cannot find a user with this id!');
       }
-      throw new AuthenticationError('Cannot find a user with this id!');
+
+
     },
   },
 
@@ -44,12 +51,12 @@ const resolvers = {
       }
 
       const token = signToken(user);
+
       return { token, user };
     },
 
     saveBook: async (parent, { input }, context) => {
       // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
-      console.log("User", context.user);
 
       try {
         if (context.user) {
