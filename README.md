@@ -8,8 +8,6 @@ An application that allows user to search for new books to read and save into th
 
 ## Table of Contents
 
-- [Installation](#installation)
-
 - [Usage](#usage)
 
 - [License](#license)
@@ -20,9 +18,11 @@ An application that allows user to search for new books to read and save into th
 
 - [Questions](#questions)
 
-## Installation
+## Application Deployed Link
 
-No need to Install this application. Just visit the deployed link and start using it.
+[BookSearchEngine_Heroku_Link](https://book-search-engine-290821.herokuapp.com/)
+
+![Book Search Engine](./assets/book-search-engine.gif)
 
 ## Usage
 
